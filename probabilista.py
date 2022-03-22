@@ -11,6 +11,19 @@ def action(m1, v1):
                 for aux in range(len(m1[0])):
                     m[fila][columna] = round(m[fila][columna] + (m1[fila][aux] * v1[aux][columna]), 3)
         return m
+    '''primera libreria cof booleanos'''
+def coeficientesbooleanos(matriz, vector, t):
+    for i in range(len(matriz)):
+        for j in range(len(matriz)):
+            if matriz[i][j]:
+                matriz[i][j] = 1
+            else:
+                matriz[i][j] = 0
+    ans = vector
+    for i in range(t):
+        ans = action(matriz, ans)
+    return ans
+''' libreria rendija prob'''
 def probabiliscocuantico(matriz, v, c):
     if (c >= 0) and (type(c) is int):
         length = len(v)
@@ -31,17 +44,7 @@ def matrizfinal(matriz):
 
         matriz[i] = nfila
     return matriz
-def coeficientesbooleanos(matriz, vector, t):
-    for i in range(len(matriz)):
-        for j in range(len(matriz)):
-            if matriz[i][j]:
-                matriz[i][j] = 1
-            else:
-                matriz[i][j] = 0
-    ans = vector
-    for i in range(t):
-        ans = action(matriz, ans)
-    return ans
+''' libreria rendija probabilistica'''
 def rendijasprobabilistico(matrix, vector, t):
     ans = vector
     for i in range(t):
